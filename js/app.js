@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   function searchSub(e) {
     var movie = search.value;
     event.preventDefault();
-    console.log(movie);
     search.value = "";
     if (movie === "") {
       alert("Pretty please, enter a movie title.")
@@ -78,16 +77,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
    
   var http = new XMLHttpRequest();
   
-  http.onreadystatechange = function() {
-  }
-
   http.open("GET", "https://omdb-api.now.sh/?s=star%20wars", true);
   http.send();
-
-  console.log(http);
-  var response = http;
-  movies.push(JSON.parse(http.response));
-
-
+  
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) { 
+      console.log(http.response);
+    }
+  }
+  
 }) ();
 });
