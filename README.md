@@ -22,7 +22,7 @@ More specifically, you'll need to extend the existing JavaScript with the follow
 
 Each well-formed `movie` object in the `movies` array must have the following key-value pairs.
 
-| Key      | Value                               |
+| Key      | Value                               | 
 |----------|-------------------------------------|
 | `id`     | The movie's unique imdb ID number.  |
 | `poster` | The URL to the movie's poster image |
