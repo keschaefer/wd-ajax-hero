@@ -1,4 +1,5 @@
-(function() {
+document.addEventListener("DOMContentLoaded", function(event) {
+  (function() {
   'use strict';
 
   const movies = [];
@@ -57,4 +58,36 @@
   };
 
   // ADD YOUR CODE HERE
-})();
+
+  var search = document.querySelector("#search");
+  var searchButton = document.querySelector("button");
+  console.log(search);
+
+  searchButton.addEventListener("click", searchSub);
+  searchButton.addEventListener("keypress", searchSub);
+  
+  function searchSub(e) {
+    var movie = search.value;
+    event.preventDefault();
+    console.log(movie);
+    search.value = "";
+    if (movie === "") {
+      alert("Pretty please, enter a movie title.")
+    }
+    }
+   
+  var http = new XMLHttpRequest();
+  
+  http.onreadystatechange = function() {
+  }
+
+  http.open("GET", "https://omdb-api.now.sh/?s=star%20wars", true);
+  http.send();
+
+  console.log(http);
+  var response = http;
+  movies.push(JSON.parse(http.response));
+
+
+}) ();
+});
